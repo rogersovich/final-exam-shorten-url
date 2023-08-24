@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1,h2,h3,h4,h5 {
+    @apply font-semibold
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+  h5 {
+    @apply text-base;
+  }
+  .text-secondary {
+    @apply dark:text-slate-400 text-slate-800
+  }
+  .card-base {
+    @apply p-5 rounded-md text-base;
+  }
+  .grid-12 {
+    @apply grid grid-cols-12;
+  }
+  .fc {
+    @apply flex items-center;
+  }
+  .fcb {
+    @apply flex items-center justify-between;
+  }
+  .fcc {
+    @apply flex items-center justify-center;
+  }
+  .rainbow-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-teal-500;
+  }
+  .rainbow-bg {
+    @apply bg-gradient-to-r from-primary-500 to-teal-500;
+  }
+  .text-hero {
+    @apply text-center text-4xl md:text-6xl font-bold tracking-wide leading-tight;
+  }
+  .nav-app {
+    @apply w-full flex items-center justify-center md:justify-between px-[5%] lg:px-[15%] backdrop-blur-md bg-white/75 dark:bg-[#18181b]/75 py-4 fixed top-0 left-0 dark:border-b dark:border-slate-700
+  }
+  .link {
+    @apply hover:border-b-2 hover:scale-110 hover:font-medium ease-in duration-100 
+  }
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: scale(0.99);
+}
