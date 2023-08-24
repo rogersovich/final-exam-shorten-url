@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { z } from "zod";
+import { z } from "zod"
+
+//@ts-ignore
+const supabase = useSupabaseClient<Database>()
+const authSupabase = useSupabaseUser()
+const toast = useToast();
 
 const schema = z.object({
   long_url: z.string(),
@@ -15,8 +20,34 @@ const form = ref();
 
 async function submit() {
   await form.value!.validate();
-  // Do something with data
-  console.log(state.value);
+
+  try {
+    const { data, error } = await supabase.from('links').insert({
+      long_url: state.value.long_url,
+      key: state.value.key,
+      user_id: authSupabase.value?.id
+    })
+
+    if (error) {
+      throw error
+    }
+
+    state.value.key = generateRandomShortenString({ minLength: 5 })
+    state.value.long_url = undefined
+
+
+    toast.add({
+      title: "Success Created Shorten Link",
+      timeout: 3000,
+      color: "green",
+    });
+  } catch (error: any) {
+    toast.add({
+      title: error.message,
+      timeout: 3000,
+      color: "red",
+    });
+  }
 }
 </script>
 <template>
@@ -26,7 +57,7 @@ async function submit() {
       <div class="grid grid-cols-12 gap-6">
         <div class="col-span-6">
           <UFormGroup name="long_url">
-            <UInput v-model="state.long_url" placeholder="Enter or Paste Long URL" variant="outline" size="lg"  />
+            <UInput v-model="state.long_url" placeholder="Enter or Paste Long URL" variant="outline" size="lg" />
           </UFormGroup>
         </div>
         <div class="col-span-3">

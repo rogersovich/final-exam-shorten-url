@@ -2,6 +2,20 @@
 definePageMeta({
   middleware: 'auth'
 })
+
+//@ts-ignore
+const supabase = useSupabaseClient<Database>()
+const user = useSupabaseUser()
+
+const { data } = useAsyncData('links', async () => {
+  const { data, error } = await supabase.from('links').select('*').eq('user_id', user.value?.id)
+
+  if (error) {
+    return error
+  }
+
+  return data
+})
 </script>
 <template>
   <div class="min-h-screen pt-20 pb-8  px-[5%] lg:px-[15%]">
@@ -11,8 +25,7 @@ definePageMeta({
       </p>
       <ShortenForm />
       <div class="flex flex-col gap-y-6">
-        <ShortenCard />
-        <ShortenCard />
+        <ShortenCard v-for="(link, i) in data" :key="i" :link="link" />
       </div>
     </div>
   </div>

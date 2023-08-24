@@ -1,17 +1,21 @@
 <script setup lang="ts">
-
+const props = defineProps<{
+  link: {
+    long_url: string
+    key: string
+    id: number
+  }
+}>()
 </script>
 <template>
   <div
     class="p-6 bg-slate-950/75 border border-slate-800 hover:border-slate-600 rounded-lg w-full flex items-center justify-between">
     <div>
       <div class="text-primary-500 font-bold text-2xl mb-0.5">
-        <ClientOnly fallback="Please wait...">
-          {{ generateRandomShortenString({minLength: 4}) }}
-        </ClientOnly>
+        {{ props.link.key }}
       </div>
       <div class="text-secondary">
-        https://ui.nuxtlabs.com/forms/input
+       {{ props.link.long_url.slice(0, 20) + '...' }}
       </div>
     </div>
     <div class="flex items-center justify-end gap-6">
