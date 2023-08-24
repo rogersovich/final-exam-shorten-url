@@ -8,7 +8,7 @@ const schema = z.object({
 
 const state = ref({
   long_url: undefined,
-  key: '/de88j',
+  key: generateRandomShortenString({ minLength: 5 }),
 });
 
 const form = ref();

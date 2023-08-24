@@ -26,28 +26,28 @@ const handleLogout = async () => {
 <template>
   <div class="nav-app">
     <NuxtLink to="/">
-      <div class="font-bold text-xl">SHORT</div>
+      <div class="font-bold text-xl tracking-[4px]">SHORT</div>
     </NuxtLink>
     <div>
       <UButton
         v-if="!user"
         class="px-6"
         color="primary"
+        variant="soft"
         size="md"
-        :ui="{ rounded: 'rounded-full' }"
+        :ui="{ rounded: 'rounded-md' }"
         to="/auth"
       >
-        Log in
+        Sign In
       </UButton>
       <UButton
         v-else
-        class="px-6"
+        variant="soft"
         color="red"
         size="md"
-        :ui="{ rounded: 'rounded-full' }"
         @click="handleLogout"
       >
-        Log out
+        <IconLogout class="w-6 h-6"/>
       </UButton>
     </div>
   </div>
