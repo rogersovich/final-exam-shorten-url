@@ -19,7 +19,7 @@ const handleLoginGithub = () => {
           <IconLock class="w-8 h-8" />
         </div>
         <div class="mt-3">
-          <UButton block color="white" variant="ghost" @click="handleLoginGithub"> Continue with Github </UButton>
+          <UButton block color="black" variant="solid" @click="handleLoginGithub"> Continue with Github </UButton>
         </div>
         <hr class="border-slate-500 my-4" />
         <div class="text-left">

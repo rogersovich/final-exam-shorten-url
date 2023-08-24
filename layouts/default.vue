@@ -3,7 +3,7 @@
     <div>
       <BaseNavigation/>
     </div>
-    <div class="min-h-screen w-full dark:bg-[#18181b]">
+    <div class="min-h-screen w-full dark:bg-black">
       <slot />
     </div>
   </div>

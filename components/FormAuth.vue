@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { z } from "zod";
 
 const schema = z.object({
@@ -24,18 +23,18 @@ async function submit() {
 <template>
   <UForm ref="form" :schema="schema" :state="state" @submit.prevent="submit">
     <UFormGroup label="Email" name="email">
-      <UInput v-model="state.email" placeholder="Email" color="gray" />
+      <UInput v-model="state.email" placeholder="Email" color="black" />
     </UFormGroup>
 
     <UFormGroup label="Password" name="password">
       <UInput
         v-model="state.password"
         type="password"
-        color="gray"
+        color="black"
         placeholder="Password"
       />
     </UFormGroup>
 
-    <UButton type="submit" block> Submit </UButton>
+    <UButton type="submit" block color="black"> Submit </UButton>
   </UForm>
 </template>
