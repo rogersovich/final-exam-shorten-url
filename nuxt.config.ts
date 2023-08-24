@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxthq/ui", "@nuxtjs/tailwindcss", "@nuxt/image"],
+  modules: [
+    "@nuxtjs/supabase",
+    "@nuxthq/ui",
+    "@nuxtjs/tailwindcss",
+    "@nuxt/image",
+  ],
   colorMode: {
     classSuffix: "",
     preference: "dark",
@@ -16,5 +21,13 @@ export default defineNuxtConfig({
   },
   imports: {
     dirs: ["composables/**", "utils/**", "types", "stores"],
+  },
+  supabase: {
+    // redirectOptions: {
+    //   login: "/auth",
+    //   callback: '/callback',
+    //   exclude: ["/"],
+    // },
+    redirect: false
   },
 });

@@ -10,7 +10,7 @@
         Transform your long, cumbersome URLs into short and <br />
         shareable links with TinyLink
       </div>
-      <UButton class="px-6" color="gray" size="md" to="/auth">
+      <UButton class="px-6" color="gray" size="md" to="/dashboard">
         Short Now
       </UButton>
     </div>
