@@ -1,4 +1,15 @@
 <script setup lang="ts">
+type geoResponseType = {
+  ip: string;
+  city: string;
+  region: string;
+  country: string;
+  loc: string;
+  org: string;
+  timezone: string;
+  readme: string;
+};
+
 const params = useRoute().params;
 //@ts-ignore
 const clients = useSupabaseClient<Database>();
@@ -16,7 +27,7 @@ const { data, error } = await useAsyncData<linksResponse>("link", async () => {
   const { data, error } = await clients
     .from("links")
     .select("*")
-    .eq("key", `/${params.id}`)
+    .eq("key", params.id)
     .single();
   if (error) {
     throw error;
@@ -29,18 +40,38 @@ const { data, error } = await useAsyncData<linksResponse>("link", async () => {
 if (error.value) {
   throw createError({
     statusCode: 404,
-    message: "Not Found",
+    message: "Link Not Found",
   });
 }
 
-// Redirect Short URL to Long URL
+// Redirect Short URL to Long URL && Insert to Table Clicks
 if (data.value) {
-  useExternalRedirect(data?.value.long_url);
+  var clickForm: any = {}
+  const userAgent = useUserAgent();
+  if (userAgent) {
+    const { data: geo } = await useFetch<geoResponseType>(
+      "https://ipinfo.io/json"
+    );
+
+    clickForm.user_agent = userAgent.userAgent;
+    clickForm.ip = geo.value?.ip;
+    if (geo) {
+      clickForm.country = geo.value?.country;
+      clickForm.city = geo.value?.city;
+    }
+  }
+
+  await clients.from("clicks").insert({
+    link_id: data.value?.id,
+    ...clickForm,
+  });
+
+  await useExternalRedirect(data?.value.long_url);
 }
 </script>
 <template>
   <div class="min-h-screen fcc">
-    {{ data }}
+    Loading...
   </div>
 </template>
 

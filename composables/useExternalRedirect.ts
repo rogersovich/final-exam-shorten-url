@@ -1,9 +1,9 @@
 import { sendRedirect } from "h3";
 
-export default async function useExternalRedirect(
+export const useExternalRedirect = async (
   url: string,
   code = 301
-): never | Promise<void> {
+): never | Promise<void> => {
   if (/^https?:\/\//.test(url)) {
     if (process.server) {
       const nuxtApp = useNuxtApp();
@@ -19,4 +19,4 @@ export default async function useExternalRedirect(
     }
   }
   throw new Error("Cannot redirect to invalid URL.");
-}
+};

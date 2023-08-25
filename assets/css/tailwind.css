@@ -58,6 +58,10 @@
   .link {
     @apply hover:border-b-2 hover:scale-110 hover:font-medium ease-in duration-100;
   }
+
+  .shorten-card {
+    @apply p-6 bg-slate-950/75 border border-slate-800 hover:border-slate-600 rounded-lg w-full
+  }
 }
 
 .page-enter-active,

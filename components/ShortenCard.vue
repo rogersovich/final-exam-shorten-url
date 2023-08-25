@@ -24,7 +24,7 @@ const onCopyLink = () => {
       color: "red",
     });
   }
-  copy(config.public.appUrl + link.value.key);
+  copy(config.public.appUrl + "/" + link.value.key);
   isCopied.value = true;
   toast.add({
     title: "Copied to Clipboard!",
@@ -42,13 +42,13 @@ watch(isCopied, (newCopied) => {
 });
 </script>
 <template>
-  <div
-    class="p-6 bg-slate-950/75 border border-slate-800 hover:border-slate-600 rounded-lg w-full flex items-center justify-between"
-  >
+  <div class="shorten-card flex items-center justify-between">
     <div>
-      <div class="text-primary-500 font-bold text-2xl mb-0.5">
-        {{ link.key }}
-      </div>
+      <NuxtLink :to="`/dashboard/${link.key}`">
+        <div class="text-primary-500 font-bold text-2xl mb-0.5">
+          {{ link.key }}
+        </div>
+      </NuxtLink>
       <div class="text-secondary">
         {{ link.long_url.slice(0, 20) + "..." }}
       </div>
