@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "@nuxthq/ui",
     "@nuxtjs/tailwindcss",
     "@nuxt/image",
+    "@vueuse/nuxt",
   ],
   colorMode: {
     classSuffix: "",
@@ -28,6 +29,6 @@ export default defineNuxtConfig({
     //   callback: '/callback',
     //   exclude: ["/"],
     // },
-    redirect: false
+    redirect: false,
   },
 });
