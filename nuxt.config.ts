@@ -17,6 +17,11 @@ export default defineNuxtConfig({
     cssPath: "~/assets/css/tailwind.css",
     configPath: "tailwind.config.ts",
   },
+  runtimeConfig: {
+    public: {
+      appUrl: process.env.APP_URL
+    }
+  },
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },

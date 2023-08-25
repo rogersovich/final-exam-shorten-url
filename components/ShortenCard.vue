@@ -9,10 +9,11 @@ const props = defineProps<{
 
 const link = toRef(props, "link");
 const toast = useToast();
+const config = useRuntimeConfig();
 
 // Handle Func Copy
 const { copy, isSupported } = useClipboard({
-  source: link.value.long_url,
+  source: link.value.key,
 });
 const isCopied = ref(false);
 const onCopyLink = () => {
@@ -23,7 +24,7 @@ const onCopyLink = () => {
       color: "red",
     });
   }
-  copy(link.value.long_url);
+  copy(config.public.appUrl + link.value.key);
   isCopied.value = true;
   toast.add({
     title: "Copied to Clipboard!",
