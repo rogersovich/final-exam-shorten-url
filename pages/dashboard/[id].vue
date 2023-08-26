@@ -1,5 +1,16 @@
 <script lang="ts" setup>
 const { id } = useRoute().params
+useHead({
+  title: `Short - Dashboard ${id}`,
+  meta: [
+    { name: "description", content: "Elegant Short URLs for a Sharper Web" },
+    {
+      name: "description",
+      content:
+        "Transform your long, cumbersome URLs into short and shareable links with TinyLink",
+    },
+  ],
+})
 //@ts-ignore
 const clients = useSupabaseClient<Database>()
 const config = useRuntimeConfig()
@@ -43,8 +54,6 @@ const formattedDate = (date: Date | string | undefined) => {
   const format = useDateFormat(date, "YYYY-MM-DD - HH:mm")
   return format.value
 }
-
-
 </script>
 
 <template>
@@ -74,7 +83,9 @@ const formattedDate = (date: Date | string | undefined) => {
               @update-is-copied="isCopied = true"
             />
           </div>
-          <div class="mt-2 text-slate-400">{{ formattedDate(data?.created_at) }}</div>
+          <div class="mt-2 text-slate-400">
+            {{ formattedDate(data?.created_at) }}
+          </div>
         </div>
 
         <div class="stats flex mt-10 flex-wrap md:flex-nowrap">

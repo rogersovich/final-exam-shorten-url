@@ -1,63 +1,32 @@
-# Nuxt 3 Minimal Starter
+# Shorten URL Apps
+This Application we made for our Final Exam PBO in STMIK Dharma Negara
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Commands
 
-## Setup
+| Command | Description           |
+| ------- | --------------------- |
+| dev     | Start devserver.      |
+| build   | Build for production. |
 
-Make sure to install the dependencies:
+## Technology Used
 
-```bash
-# npm
-npm install
+### UI Frameworks
 
-# pnpm
-pnpm install
+- [NuxtLabsUI](https://ui.nuxtlabs.com/getting-started/)
+- [TailwindCSS](https://tailwindcss.com/)
 
-# yarn
-yarn install
-```
+### Icons
 
-## Development Server
+- [Icones](https://icones.js.org/)
 
-Start the development server on `http://localhost:3000`:
+### Database
 
-```bash
-# npm
-npm run dev
+- [Nuxt Supabase](https://pinia.vuejs.org)
 
-# pnpm
-pnpm run dev
+### Plugins
 
-# yarn
-yarn dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- [Nuxt Image](https://image.nuxtjs.org/)
+- [Vue Use](https://vueuse.org/)
+- [CLSX](https://www.npmjs.com/package/clsx)
+- [Tailwind Merge](https://www.npmjs.com/package/tailwind-merge)
+- [Zod](https://zod.dev/)

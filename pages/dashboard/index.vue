@@ -2,6 +2,13 @@
 definePageMeta({
   middleware: "auth",
 })
+useHead({
+  title: 'Short - Dashboard Link',
+  meta: [
+    { name: 'description', content: 'Elegant Short URLs for a Sharper Web' },
+    { name: 'description', content: 'Transform your long, cumbersome URLs into short and shareable links with TinyLink' }
+  ],
+})
 
 //@ts-ignore
 const supabase = useSupabaseClient<Database>()

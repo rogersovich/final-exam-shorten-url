@@ -2,6 +2,13 @@
 definePageMeta({
   middleware: 'auth'
 })
+useHead({
+  title: 'Short - Auth',
+  meta: [
+    { name: 'description', content: 'Elegant Short URLs for a Sharper Web' },
+    { name: 'description', content: 'Transform your long, cumbersome URLs into short and shareable links with TinyLink' }
+  ],
+})
 const supabaseAuth = useSupabaseClient()
 const isRegister = ref(false)
 

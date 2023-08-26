@@ -1,4 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHead({
+  title: 'Short - Home',
+  meta: [
+    { name: 'description', content: 'Elegant Short URLs for a Sharper Web' },
+    { name: 'description', content: 'Transform your long, cumbersome URLs into short and shareable links with TinyLink' }
+  ],
+})
+</script>
 <template>
   <div class="min-h-screen fcc px-4 sm:px-0">
     <div class="text-center">
