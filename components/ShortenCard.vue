@@ -20,20 +20,25 @@ watch(isCopied, (newCopied) => {
 })
 </script>
 <template>
-  <div class="shorten-card flex items-center justify-between">
-    <div>
+  <div class="shorten-card sm:flex items-center justify-between">
+    <div class="mb-4 sm:mb-0">
       <NuxtLink :to="`/dashboard/${link.key}`">
         <div class="text-primary-500 font-bold text-2xl mb-0.5">
-          {{ link.key }}
+          {{ `/${link.key}` }}
         </div>
       </NuxtLink>
       <div class="text-secondary">
-        {{ link.long_url.slice(0, 20) + "..." }}
+        <span class="hidden sm:block">
+          {{ link.long_url.slice(0, 20) + "..." }}
+        </span>
+        <span class="block sm:hidden">
+          {{ link.long_url.slice(0, 35) + "..." }}
+        </span>
       </div>
     </div>
-    <div class="flex items-center justify-end gap-6">
+    <div class="flex items-center justify-between sm:justify-end gap-6">
       <div class="">
-        <div class="text-secondary flex items-center justify-end gap-4">
+        <div class="text-secondary flex items-center sm:justify-end gap-4">
           <div class="text-lg font-bold">
             {{ link.total_clicks }}
           </div>

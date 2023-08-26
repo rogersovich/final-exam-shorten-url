@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { z } from "zod";
 
-const { isRegister } = defineProps<{
+const props = defineProps<{
   isRegister: boolean
 }>()
 
 const emits = defineEmits(['toggleIsRegister'])
+
+const isRegister = toRef(props, 'isRegister')
 
 const supabaseAuth = useSupabaseClient()
 const toast = useToast();
@@ -93,13 +95,18 @@ const onRegister = async () => {
   }
 }
 
+const toggleSwitch = () => {
+  state.value.email = undefined
+  state.value.password = undefined
+  emits('toggleIsRegister')
+}
 
 async function submit() {
   await form.value!.validate();
-  if (isRegister) {
-    await onRegister()
+  if (isRegister.value) {
+    return await onRegister()
   } else {
-    await onLogin()
+    return await onLogin()
   }
 }
 </script>
@@ -121,7 +128,7 @@ async function submit() {
     <div class="mt-3 text-sm text-center text-secondary">
 
       {{ isRegister ? 'Already have Account' : ' Dont have Account ?' }}
-      <span class="underline cursor-pointer" @click.native="emits('toggleIsRegister')">
+      <span class="underline cursor-pointer" @click.native="toggleSwitch">
         {{ isRegister ? 'Sign In' : 'Sign Up' }}
       </span>
     </div>

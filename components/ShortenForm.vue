@@ -56,7 +56,7 @@ async function submit() {
   <div class="p-6 bg-slate-950/75 border border-slate-800 rounded-lg mb-8">
     <UForm ref="form" :schema="schema" :state="state" @submit.prevent="submit">
       <div class="grid grid-cols-12 gap-6">
-        <div class="col-span-6">
+        <div class="col-span-12 sm:col-span-6">
           <UFormGroup name="long_url">
             <UInput
               v-model="state.long_url"
@@ -66,7 +66,7 @@ async function submit() {
             />
           </UFormGroup>
         </div>
-        <div class="col-span-3">
+        <div class="col-span-7 sm:col-span-3">
           <UFormGroup name="key">
             <UInput
               v-model="state.key"
@@ -77,7 +77,7 @@ async function submit() {
             />
           </UFormGroup>
         </div>
-        <div class="col-span-3">
+        <div class="col-span-5 sm:col-span-3">
           <UButton block size="lg" type="submit" variant="soft">
             <span class="text-[16px]"> Shorten </span>
           </UButton>
