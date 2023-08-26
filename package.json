@@ -15,7 +15,6 @@
     "@nuxthq/ui": "npm:@nuxthq/ui-edge@latest",
     "@nuxtjs/supabase": "^1.0.2",
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@types/geoip-lite": "^1.4.1",
     "@types/node": "^18.17.3",
     "@vueuse/core": "^10.3.0",
     "@vueuse/nuxt": "^10.3.0",
@@ -24,7 +23,6 @@
   },
   "dependencies": {
     "clsx": "^2.0.0",
-    "geoip-lite": "^1.4.7",
     "tailwind-merge": "^1.14.0"
   }
 }
