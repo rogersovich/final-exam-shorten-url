@@ -5,6 +5,7 @@
     </div>
     <div class="min-h-screen w-full dark:bg-black">
       <slot />
+      <!-- test Devan -->
     </div>
   </div>
 </template>
