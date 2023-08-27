@@ -30,4 +30,4 @@ This Application we made for our Final Exam PBO in STMIK Dharma Negara
 - [CLSX](https://www.npmjs.com/package/clsx)
 - [Tailwind Merge](https://www.npmjs.com/package/tailwind-merge)
 - [Zod](https://zod.dev/)
-<!-- Devan -->
+<!-- Devan Tritama -->
