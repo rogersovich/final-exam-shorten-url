@@ -10,8 +10,8 @@ export default defineNuxtConfig({
   ],
   colorMode: {
     classSuffix: "",
-    preference: "dark",
-    fallback: "light",
+    preference: "system",
+    fallback: "dark",
   },
   tailwindcss: {
     cssPath: "~/assets/css/tailwind.css",
@@ -19,8 +19,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      appUrl: process.env.APP_URL
-    }
+      appUrl: process.env.APP_URL,
+    },
   },
   app: {
     pageTransition: { name: "page", mode: "out-in" },
@@ -36,4 +36,4 @@ export default defineNuxtConfig({
     // },
     redirect: false,
   },
-});
+})

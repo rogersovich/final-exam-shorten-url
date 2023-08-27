@@ -83,7 +83,7 @@ const formattedDate = (date: Date | string | undefined) => {
               @update-is-copied="isCopied = true"
             />
           </div>
-          <div class="mt-2 text-slate-400">
+          <div class="mt-2 dark:text-slate-400 text-slate-500 ">
             {{ formattedDate(data?.created_at) }}
           </div>
         </div>
@@ -93,10 +93,10 @@ const formattedDate = (date: Date | string | undefined) => {
             <div class="text-4xl font-bold">
               {{ data?.total_clicks ?? 0 }}
             </div>
-            <div class="text-slate-400 text-lg">Total Clicks</div>
+            <div class="dark:text-slate-400 text-slate-500 text-lg">Total Clicks</div>
           </div>
           <div class="shorten-card mt-5 md:mt-0 md:ml-5 w-full relatifcve">
-            <div class="md:text-lg text-slate-300">
+            <div class="md:text-lg dark:text-slate-300 text-slate-600">
               {{ data?.long_url }}
             </div>
           </div>
@@ -110,11 +110,11 @@ const formattedDate = (date: Date | string | undefined) => {
                   <div class="text-primary-500 text-lg">
                     {{ `IP : ${click.ip}` }}
                   </div>
-                  <div class="text-slate-300">
+                  <div class="dark:text-slate-300 text-slate-600">
                     {{ `Date : ${formattedDate(click.created_at)}` }}
                   </div>
                 </div>
-                <div class="div text-slate-300">
+                <div class="dark:text-slate-300 text-slate-600">
                   <div v-if="click.country">Country: {{ click.country }}</div>
                   <div v-if="click.city">City: {{ click.city }}</div>
                 </div>

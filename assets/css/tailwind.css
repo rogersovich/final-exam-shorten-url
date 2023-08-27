@@ -53,14 +53,13 @@
     @apply text-center text-4xl md:text-6xl font-bold tracking-wide leading-tight;
   }
   .nav-app {
-    @apply w-full flex items-center justify-between px-[5%] lg:px-[15%] backdrop-blur-md bg-white/75 dark:bg-black/75 py-4 fixed top-0 left-0 dark:border-b dark:border-slate-700;
+    @apply w-full flex items-center justify-between px-[5%] lg:px-[15%] backdrop-blur-md bg-white/75 dark:bg-black/75 py-4 fixed z-50 top-0 left-0 border-b dark:border-slate-700;
   }
   .link {
     @apply hover:border-b-2 hover:scale-110 hover:font-medium ease-in duration-100;
   }
-
   .shorten-card {
-    @apply p-6 bg-slate-950/75 border border-slate-800 hover:border-slate-600 rounded-lg w-full
+    @apply p-6 bg-slate-100/75 dark:bg-slate-950/75 border dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 rounded-lg w-full;
   }
 }
 

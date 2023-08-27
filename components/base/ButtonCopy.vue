@@ -36,8 +36,8 @@ const onCopyLink = () => {
     color="gray"
     :class="
       cn(
-        'py-3.5 px-4 rounded-xl hover:bg-slate-900',
-        isCopied && '!ring-primary-500'
+        'py-3.5 px-4 rounded-xl ring-slate-300 dark:ring-slate-700 hover:bg-slate-300 dark:hover:bg-slate-900',
+        isCopied && '!ring-primary-500 !bg-white dark:!bg-black'
       )
     "
   >

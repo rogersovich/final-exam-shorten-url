@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { z } from "zod"
 
-const emits = defineEmits(['refetchLinks'])
+const emits = defineEmits(["refetchLinks"])
+
+const colorMode = useColorMode()
 
 //@ts-ignore
 const supabase = useSupabaseClient<Database>()
@@ -37,7 +39,7 @@ async function submit() {
     state.value.key = generateRandomShortenString({ minLength: 5 })
     state.value.long_url = undefined
 
-    emits('refetchLinks')
+    emits("refetchLinks")
     toast.add({
       title: "Success Created Shorten Link",
       timeout: 3000,
@@ -53,9 +55,9 @@ async function submit() {
 }
 </script>
 <template>
-  <div class="p-6 bg-slate-950/75 border border-slate-800 rounded-lg mb-8">
+  <div class="shorten-card mb-8">
     <UForm ref="form" :schema="schema" :state="state" @submit.prevent="submit">
-      <div class="grid grid-cols-12 gap-6">
+      <div class="grid grid-cols-12 gap-4 sm:gap-6">
         <div class="col-span-12 sm:col-span-6">
           <UFormGroup name="long_url">
             <UInput
@@ -78,9 +80,16 @@ async function submit() {
           </UFormGroup>
         </div>
         <div class="col-span-5 sm:col-span-3">
-          <UButton block size="lg" type="submit" variant="soft">
-            <span class="text-[16px]"> Shorten </span>
-          </UButton>
+          <ClientOnly>
+            <UButton
+              block
+              size="lg"
+              type="submit"
+              :variant="cn(colorMode.value == 'dark' ? 'soft' : 'solid')"
+            >
+              <span class="text-[16px]"> Shorten </span>
+            </UButton>
+          </ClientOnly>
         </div>
       </div>
     </UForm>
