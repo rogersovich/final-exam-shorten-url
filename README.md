@@ -1,6 +1,8 @@
 # Shorten URL Apps
 This Application we made for our Final Exam PBO in STMIK Dharma Negara
 
+btw this application inspired from [Jahid Anowar Videos](https://github.com/jahidanowar/shrty) and I wanna say Thank You Bruh
+
 ## Commands
 
 | Command | Description           |
